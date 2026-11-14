@@ -1,34 +1,82 @@
 import { useEffect, useState } from 'react'
 import "./Navbar.css"
-import logo from "../../assets/logo.png"
-import { Link } from 'react-scroll';
-import menu_icon from "../../assets/menu-icon.png"
+import logo from "../../assets/logo.jpeg"
+import { Link } from 'react-scroll'
+import { PHONE, PHONE_LINK, EMAIL, ADDRESS } from '../../data'
+import { PhoneIcon, MailIcon, PinIcon, MenuIcon, CloseIcon, Socials } from '../Icons/Icons'
+
+const links = [
+  { to: 'hero', label: 'Home' },
+  { to: 'services', label: 'Services' },
+  { to: 'about', label: 'About Us' },
+  { to: 'cars', label: 'Our Cars' },
+  { to: 'drivers', label: 'Drivers' },
+  { to: 'testimonials', label: 'Reviews' },
+  { to: 'news', label: 'News' },
+]
+
 const Navbar = () => {
-  const[sticky, setSticky]=useState(false);
+  const [sticky, setSticky] = useState(false)
+  const [mobileMenu, setMobileMenu] = useState(false)
 
-  useEffect(()=>{
-   window.addEventListener("scroll",()=>{
-    window.scrollY>50 ?setSticky(true):setSticky(false)
-   })
-  },[])
-const [mobileMenu, setMobileMenu]=useState(false)
-  const toggleMenu=()=>{setMobileMenu()
-    mobileMenu?setMobileMenu(false):setMobileMenu(true)
-  }
+  useEffect(() => {
+    const onScroll = () => setSticky(window.scrollY > 150)
+    window.addEventListener("scroll", onScroll)
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  const closeMenu = () => setMobileMenu(false)
+
   return (
-    <nav className={`container ${sticky?"dark-nav":""}`}>
-      <img src={logo} alt="" className='logo'/>
-      <ul className={mobileMenu?"":"hide-mobile-menu"}>
-        <li><Link to='hero' smooth={true} offset={-290} duration={500}>Home</Link></li>
-        <li><Link to='programs' smooth={true} offset={-150} duration={500}>Program</Link></li>
-        <li><Link to='about' smooth={true} offset={-260} duration={500}>About us</Link></li>
-        <li><Link to='campus' smooth={true} offset={-260} duration={500}>Campus</Link></li>
-        <li><Link to='testimoials' smooth={true} offset={-260} duration={500}>Testimonials</Link></li>
-        <li><Link to='contact' smooth={true} offset={0} duration={500} className='btn'>Contact us</Link></li>
+    <>
+      <div className="topbar">
+        <div className="container topbar-inner">
+          <ul className="topbar-info">
+            <li><MailIcon /><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+            <li><PinIcon />{ADDRESS}</li>
+          </ul>
+          <div className="topbar-right">
+            <span><PhoneIcon />Tel: <a href={PHONE_LINK}>{PHONE}</a></span>
+            <Socials />
+          </div>
+        </div>
+      </div>
 
-      </ul>
-      <img onClick={toggleMenu} src={menu_icon} alt="" className='menu-icon' />
-    </nav>
+      <nav className={`navbar ${sticky ? "sticky" : ""}`}>
+        <div className="container navbar-inner">
+          <Link to='hero' smooth={true} duration={500} className="logo">
+            <img src={logo} alt="Bharat Darshan Travels" />
+          </Link>
+
+          <ul className={`nav-links ${mobileMenu ? "open" : ""}`}>
+            {links.map(link => (
+              <li key={link.to}>
+                <Link to={link.to} smooth={true} offset={-90} duration={500} spy={true} activeClass='active' onClick={closeMenu}>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li className="nav-mobile-cta">
+              <Link to='booking' smooth={true} offset={-90} duration={500} className='btn' onClick={closeMenu}>Book Now</Link>
+            </li>
+          </ul>
+
+          <div className="nav-right">
+            <a href={PHONE_LINK} className="nav-call">
+              <span className="nav-call-icon"><PhoneIcon /></span>
+              <span>
+                <small>Call Anytime</small>
+                <strong>{PHONE}</strong>
+              </span>
+            </a>
+            <Link to='booking' smooth={true} offset={-90} duration={500} className='btn nav-btn'>Book Now</Link>
+            <button className='menu-toggle' aria-label='Toggle menu' onClick={() => setMobileMenu(!mobileMenu)}>
+              {mobileMenu ? <CloseIcon /> : <MenuIcon />}
+            </button>
+          </div>
+        </div>
+      </nav>
+    </>
   )
 }
 

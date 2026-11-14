@@ -1,0 +1,121 @@
+.services{
+  background: var(--light-bg);
+}
+.services-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.service-card{
+  background: #fff;
+  position: relative;
+  transition: transform .4s, box-shadow .4s;
+}
+.service-card::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--theme);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s;
+}
+.service-card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.08);
+}
+.service-card:hover::after{
+  transform: scaleX(1);
+}
+.service-img{
+  position: relative;
+  overflow: hidden;
+  height: 260px;
+}
+.service-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s;
+}
+.service-card:hover .service-img img{
+  transform: scale(1.08);
+}
+.service-num{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--black);
+  color: var(--theme);
+  font-family: var(--heading-font);
+  font-weight: 800;
+  font-size: 20px;
+  padding: 10px 18px;
+}
+.service-body{
+  padding: 0 35px 40px;
+  position: relative;
+}
+.service-icon{
+  width: 76px;
+  height: 76px;
+  background: var(--theme);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -38px;
+  margin-bottom: 24px;
+  position: relative;
+  transition: .4s;
+}
+.service-icon svg{
+  width: 34px;
+  height: 34px;
+}
+.service-card:hover .service-icon{
+  background: var(--black);
+  color: var(--theme);
+}
+.service-body h3{
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+.service-body h3 a:hover{
+  color: var(--theme-dark);
+}
+.service-body p{
+  margin-bottom: 20px;
+}
+.service-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--black);
+}
+.service-link svg{
+  width: 16px;
+  height: 16px;
+  transition: transform .3s;
+}
+.service-link:hover svg{
+  transform: translateX(5px);
+}
+
+@media (max-width: 991px){
+  .services-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767px){
+  .services-grid{
+    grid-template-columns: 1fr;
+  }
+}

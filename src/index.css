@@ -1,51 +1,129 @@
+:root{
+  --theme: #ffee02;
+  --theme-dark: #c9bb00;
+  --accent: #ffc000;
+  --black: #000;
+  --dark: #111;
+  --dark-2: #1c1c1c;
+  --text: #686a6f;
+  --heading: #000;
+  --light-bg: #f7f4ed;
+  --border: #e9e9e9;
+  --heading-font: "DM Sans", sans-serif;
+  --body-font: "Roboto", sans-serif;
+}
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+html{
+  scroll-behavior: smooth;
+}
+section[id]{
+  scroll-margin-top: 90px;
+}
 body{
-  background: #f5f5f5;
+  background: #fff;
+  color: var(--text);
+  font-family: var(--body-font);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4, h5{
+  font-family: var(--heading-font);
+  color: var(--heading);
+  line-height: 1.2;
+  font-weight: 700;
 }
 a{
   text-decoration: none;
   color: inherit;
-  line-height: 1;
   cursor: pointer;
+}
+ul{
+  list-style: none;
+}
+img{
+  max-width: 100%;
+  display: block;
 }
 .container{
-  padding-left: 10%;
-  padding-right: 10%;
+  width: 100%;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }
+.section{
+  padding: 120px 0;
+}
+
+/* buttons */
 .btn{
-  background: white;
-  color: #212121;
-  padding: 14px 25px;
-  font-size: 16px;
-  border-radius: 30px;
-  cursor: pointer;
-  border: 0;
-  outline: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+  background: var(--theme);
+  color: var(--black);
+  font-family: var(--heading-font);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  padding: 17px 36px;
+  border: 0;
+  outline: 0;
+  border-radius: 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color .4s ease;
 }
-.btn img{
-  width: 20px;
-  margin-left: 10px;
+.btn::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--black);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .4s ease;
+  z-index: -1;
 }
-.dark-btn{
-  background:#212ea0 ;
-  color: white;
+.btn:hover{
+  color: #fff;
+}
+.btn:hover::before{
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.btn-dark{
+  background: var(--black);
+  color: #fff;
+}
+.btn-dark::before{
+  background: var(--theme);
+}
+.btn-dark:hover{
+  color: var(--black);
+}
+.btn svg{
+  width: 16px;
+  height: 16px;
+}
 
+/* taxi checker strip */
+.checker{
+  height: 12px;
+  background-image: repeating-conic-gradient(var(--black) 0% 25%, var(--theme) 0% 50%);
+  background-size: 24px 24px;
 }
 
-@media (max-width:1200px){
-.container{
-  padding-left: 5%;
-  padding-right: 5%;
-}
-.btn{
-  padding: 14px 22px;
-   
-}
+@media (max-width: 991px){
+  .section{
+    padding: 80px 0;
+  }
 }

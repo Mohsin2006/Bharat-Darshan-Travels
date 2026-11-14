@@ -1,0 +1,66 @@
+.app-promo{
+  background: var(--black);
+}
+.app-promo-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.app-promo h2{
+  color: #fff;
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.app-promo h2 span{
+  color: var(--theme);
+}
+.app-promo p{
+  color: #a1a1a1;
+}
+.store-btns{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.store-btn{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--theme);
+  color: var(--black);
+  padding: 12px 24px;
+  transition: .3s;
+}
+.store-btn:hover{
+  background: #fff;
+}
+.store-btn svg{
+  width: 28px;
+  height: 28px;
+}
+.store-btn span{
+  font-family: var(--heading-font);
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.1;
+}
+.store-btn small{
+  display: block;
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+@media (max-width: 991px){
+  .app-promo-inner{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .app-promo h2{
+    font-size: 32px;
+  }
+}

@@ -1,17 +1,12 @@
 import "./Title.css"
-import PropTypes from 'prop-types';
 
-const Title = ({subTitle, title}) => {
+const Title = ({ subTitle, title, light = false, align = "center" }) => {
   return (
-    <div className='title'>
+    <div className={`title title-${align} ${light ? "title-light" : ""}`}>
       <p>{subTitle}</p>
       <h2>{title}</h2>
     </div>
   )
 }
-Title.propTypes = {
-  subTitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
 
-};
 export default Title

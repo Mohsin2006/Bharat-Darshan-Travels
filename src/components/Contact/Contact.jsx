@@ -44,9 +44,9 @@ const Contact = () => {
         <h3>Send us a msg <img src={msg_icon} alt="" /></h3>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto ducimus tempora laboriosam dignissimos facere esse! Culpa, eaque distinctio recusandae dicta pariatur velit, excepturi facere error explicabo eligendi est temporibus qui?</p>
         <ul>
-            <li><img src={mail_icon} alt="" />Contact@TheCodingCollege</li>
+            <li><img src={mail_icon} alt="" />contact@bharatdarshan.com</li>
             <li><img src={phone_icon} alt="" />+1 123-456-789</li>
-            <li><img src={location_icon} alt="" />USA</li>
+            <li><img src={location_icon} alt="" />Delhi, INDIA</li>
         </ul>
       </div>
       <div className="contact-col">
