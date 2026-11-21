@@ -8,10 +8,10 @@ import Title from "../Title/Title"
 import { PinIcon, ArrowIcon } from "../Icons/Icons"
 
 const cars = [
-  { image: car_1, name: "Hatchback", route: "Delhi, Kathmandu, Pokhra, Agra, Mathura", seats: "5 Seats", rate: 17 },
-  { image: car_2, name: "Maruti Suzuki Ertiga", route: "Ayodhya, Varanasi, Lucknow", seats: "7 Seats", rate: 22 },
+  { image: car_1, name: "Hatchback", route: "Delhi, Kathmandu, Pokhra, Agra, Siwan", seats: "5 Seats", rate: 17 },
+  { image: car_2, name: "Maruti Suzuki Ertiga", route: "Ayodhya, Varanasi, Lucknow, Mathura", seats: "7 Seats", rate: 22 },
   { image: car_3, name: "Sedan", route: "Prayagraj, Gorakhpur, Kanpur, Lumbini", seats: "5 Seats", rate: 18 },
-  { image: car_5, name: "Force Urbania", route: "Delhi, Agra, Patna, Siwan", seats: "16 Seats", rate: 45 },
+  { image: car_5, name: "Force Urbania", route: "Delhi, Agra, Patna, Siwan, Kathmandu", seats: "16 Seats", rate: 45 },
   { image: car_4, name: "Toyota Innova", route: "All India Permit", seats: "7 Seats", rate: 30 },
 ]
 
