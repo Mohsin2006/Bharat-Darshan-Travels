@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import "./Navbar.css"
 import logo from "../../assets/logo.jpeg"
 import { Link } from 'react-scroll'
-import { PHONE, PHONE_LINK, EMAIL, ADDRESS } from '../../data'
-import { PhoneIcon, MailIcon, PinIcon, MenuIcon, CloseIcon, Socials } from '../Icons/Icons'
+import { PHONE, PHONE_LINK, WHATSAPP_LINK, EMAIL, ADDRESS } from '../../data'
+import { PhoneIcon, WhatsAppIcon, MailIcon, PinIcon, MenuIcon, CloseIcon, Socials } from '../Icons/Icons'
 
 const links = [
   { to: 'hero', label: 'Home' },
@@ -68,6 +68,16 @@ const Navbar = () => {
                 <small>Call Anytime</small>
                 <strong>{PHONE}</strong>
               </span>
+            </a>
+            <a
+              href={WHATSAPP_LINK}
+              className="nav-whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat with us on WhatsApp"
+              title="Chat on WhatsApp"
+            >
+              <WhatsAppIcon />
             </a>
             <Link to='booking' smooth={true} offset={-90} duration={500} className='btn nav-btn'>Book Now</Link>
             <button className='menu-toggle' aria-label='Toggle menu' onClick={() => setMobileMenu(!mobileMenu)}>

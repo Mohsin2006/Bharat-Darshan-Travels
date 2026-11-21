@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ArrowIcon, PinIcon, CalendarIcon, ClockIcon, UserIcon, PhoneIcon, CarIcon, ShieldIcon } from '../Icons/Icons'
+import { sendBookingToWhatsApp } from '../../utils/whatsapp'
 
 const tripTypes = ["One Way", "Round Trip", "Airport", "Local"]
 
@@ -24,6 +25,9 @@ const HeroBooking = () => {
     const formData = new FormData(event.target)
 
     formData.append("trip_type", trip)
+
+    sendBookingToWhatsApp(formData)
+
     formData.append("access_key", "4d5aad18-c75c-4266-aae2-8bc74d4cb7bc")
     formData.append("subject", "New ride booking (Home) - Bharat Darshan Travels")
 
@@ -101,10 +105,11 @@ const HeroBooking = () => {
             <Field icon={CarIcon}>
               <select name="car_type" required defaultValue="">
                 <option value="" disabled>Choose Car Type</option>
-                <option>Toyota Fortuner</option>
-                <option>Kia Seltos</option>
-                <option>Mahindra Scorpio</option>
-                <option>Toyota Innova</option>
+                 <option>Hatchback</option>
+            <option>Maruti Suzuki Ertiga</option>
+            <option>Sedan</option>
+            <option>Force Urbania</option>
+            <option>Toyota Innova</option>
               </select>
             </Field>
 

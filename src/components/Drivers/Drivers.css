@@ -66,6 +66,11 @@
   box-shadow: 0 15px 40px rgba(0,0,0,.08);
   border-bottom: 4px solid var(--theme);
 }
+.driver-card.no-photo .driver-body{
+  margin: 0;
+  height: 100%;
+  padding: 36px 24px;
+}
 .driver-body h3{
   font-size: 24px;
 }

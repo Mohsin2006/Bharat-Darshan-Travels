@@ -3,6 +3,7 @@ import "./Booking.css"
 import booking_img from "../../assets/gallery-3.jpeg"
 import { PHONE, PHONE_LINK } from '../../data'
 import { ArrowIcon, PhoneIcon, ShieldIcon, ClockIcon } from '../Icons/Icons'
+import { sendBookingToWhatsApp } from '../../utils/whatsapp'
 
 const Booking = () => {
   const [result, setResult] = useState("")
@@ -11,6 +12,8 @@ const Booking = () => {
     event.preventDefault()
     setResult("Sending....")
     const formData = new FormData(event.target)
+
+    sendBookingToWhatsApp(formData)
 
     formData.append("access_key", "4d5aad18-c75c-4266-aae2-8bc74d4cb7bc")
     formData.append("subject", "New ride booking - Bharat Darshan Travels")
@@ -52,9 +55,10 @@ const Booking = () => {
         <form onSubmit={onSubmit} className="booking-form">
           <select name="car_type" required defaultValue="">
             <option value="" disabled>Choose Car Type</option>
-            <option>Toyota Fortuner</option>
-            <option>Kia Seltos</option>
-            <option>Mahindra Scorpio</option>
+            <option>Hatchback</option>
+            <option>Maruti Suzuki Ertiga</option>
+            <option>Sedan</option>
+            <option>Force Urbania</option>
             <option>Toyota Innova</option>
           </select>
           <select name="trip_type" required defaultValue="">
@@ -62,6 +66,8 @@ const Booking = () => {
             <option>One Way</option>
             <option>Round Trip</option>
             <option>Airport Transfer</option>
+            <option>Railway Station</option>
+            <option>Family Tour</option>
             <option>Local / City Tour</option>
           </select>
           <input type="text" name="name" placeholder="Your Name" required />

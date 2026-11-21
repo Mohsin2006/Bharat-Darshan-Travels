@@ -12,6 +12,9 @@ const drivers = [
   { image: driver_3, name: "Rohit Verma", role: "Outstation Specialist" },
 ]
 
+// Driver photos are hidden for now. Set to true to show them again.
+const SHOW_PHOTOS = false
+
 const Drivers = () => {
   return (
     <section className='drivers section' id='drivers'>
@@ -19,15 +22,15 @@ const Drivers = () => {
         <Title subTitle='Our Expert Drivers' title='Meet Our Drivers' />
         <div className="drivers-grid">
           {drivers.map(driver => (
-            <div className="driver-card" key={driver.name}>
-              <div className="driver-img">
+            <div className={`driver-card ${SHOW_PHOTOS ? "" : "no-photo"}`} key={driver.name}>
+              {SHOW_PHOTOS && <div className="driver-img">
                 <img src={driver.image} alt={driver.name} />
                 <ul className="driver-socials">
                   <li><a href="#" aria-label="Facebook"><FacebookIcon /></a></li>
                   <li><a href="#" aria-label="Twitter"><TwitterIcon /></a></li>
                   <li><a href="#" aria-label="Instagram"><InstagramIcon /></a></li>
                 </ul>
-              </div>
+              </div>}
               <div className="driver-body">
                 <h3>{driver.name}</h3>
                 <span>{driver.role}</span>

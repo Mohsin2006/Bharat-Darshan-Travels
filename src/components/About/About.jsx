@@ -2,8 +2,8 @@ import "./About.css"
 import about_img from "../../assets/about.jpeg"
 import about_small from "../../assets/gallery-1.jpeg"
 import Title from "../Title/Title"
-import { PHONE, PHONE_LINK } from "../../data"
-import { CheckIcon, PhoneIcon, PlayIcon } from "../Icons/Icons"
+import { PHONE, PHONE_LINK, WHATSAPP_LINK } from "../../data"
+import { CheckIcon, PhoneIcon, PlayIcon, WhatsAppIcon } from "../Icons/Icons"
 
 const points = [
   "Background-checked, professionally trained drivers",
@@ -43,16 +43,28 @@ const About = ({ setPlayState }) => {
             ))}
           </ul>
           <div className="about-bottom">
-            <a href={PHONE_LINK} className="about-call">
-              <span className="about-call-icon"><PhoneIcon /></span>
-              <span>
-                <small>Call For a Ride</small>
-                <strong>{PHONE}</strong>
-              </span>
-            </a>
+            <div className="about-contact">
+              <a href={PHONE_LINK} className="about-call">
+                <span className="about-call-icon"><PhoneIcon /></span>
+                <span>
+                  <small>Call For a Ride</small>
+                  <strong>{PHONE}</strong>
+                </span>
+              </a>
+              <a
+                href={WHATSAPP_LINK}
+                className="about-whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat with us on WhatsApp"
+                title="Chat on WhatsApp"
+              >
+                <WhatsAppIcon />
+              </a>
+            </div>
             <div className="about-founder">
-              <strong>Rakesh Sharma</strong>
-              <span>Founder - CEO</span>
+              <strong>Rafi ullah</strong>
+              <span>Properator</span>
             </div>
           </div>
         </div>

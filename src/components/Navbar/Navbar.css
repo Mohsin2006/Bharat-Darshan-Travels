@@ -157,6 +157,27 @@
   font-size: 17px;
   white-space: nowrap;
 }
+.nav-whatsapp{
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -13px;
+  transition: transform .2s ease, background .2s ease;
+}
+.nav-whatsapp:hover{
+  background: #1ebe5a;
+  transform: translateY(-2px);
+}
+.nav-whatsapp svg{
+  width: 24px;
+  height: 24px;
+}
 .menu-toggle{
   display: none;
   background: var(--theme);
@@ -172,6 +193,9 @@
 @media (max-width: 1300px){
   .nav-call{
     display: none;
+  }
+  .nav-whatsapp{
+    margin-left: 0;
   }
 }
 @media (max-width: 1100px){

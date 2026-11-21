@@ -5,7 +5,7 @@ import StoreButtons from "../AppPromo/StoreButtons"
 import { PHONE, PHONE_LINK, EMAIL, ADDRESS } from "../../data"
 import { PhoneIcon, MailIcon, PinIcon, ArrowIcon, Socials } from "../Icons/Icons"
 
-const services = ["Airport Transfer", "Business Transport", "City Tours", "Outstation Trips", "Online Booking", "Wedding Cars"]
+const services = ["One Way Taxi", "Round Trip Taxi", "Airport Pickups and Drop-offs", "Railway Station Pickups", "Family Tours", "Local & Outstation Trips"]
 
 const Footer = () => {
   const [subscribed, setSubscribed] = useState(false)

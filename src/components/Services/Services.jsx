@@ -1,7 +1,7 @@
 import "./Services.css"
 import service_1 from "../../assets/gallery-2.jpeg"
 import service_2 from "../../assets/gallery-4.jpeg"
-import service_3 from "../../assets/program-1.jpeg"
+import service_3 from "../../assets/program-1.png"
 import Title from "../Title/Title"
 import { ArrowIcon, RouteIcon, ClockIcon, CarIcon } from "../Icons/Icons"
 
